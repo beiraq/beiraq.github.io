@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پادکست بیرق</title>
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://s6.uupload.ir/files/1752594726967_62ni.png" style="border-radius: 100px;" sizes="16x16">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Vazir, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-image: url('https://example.com/black-flag.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #8B0000;
+        }
+        
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #8B0000;
+        }
+        
+        .logo-circle img {
+            width: 80%;
+            height: auto;
+        }
+        
+        .header-content {
+            margin-top: 1rem;
+        }
+        
+        .header-content h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content p {
+            color: #aaa;
+            font-size: 1.2rem;
+        }
+        
+        .affiliate-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: auto;
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            background-color: rgba(139, 0, 0, 0.3);
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .info-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #8B0000;
+        }
+        
+        .podcast-intro {
+            background-color: rgba(20, 20, 20, 0.9);
+            margin: 1rem auto;
+            padding: 1rem;
+            max-width: 800px;
+            border-radius: 5px;
+            border-right: 3px solid #8B0000;
+            text-align: center;
+        }
+        
+        .latest-episode {
+            background-color: rgba(30, 30, 30, 0.9);
+            margin: 2rem auto;
+            padding: 1.5rem;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(139, 0, 0, 0.3);
+        }
+        
+        .latest-episode h2 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .latest-info {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .audio-player {
+            width: 100%;
+            background-color: #111;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        
+        audio {
+            width: 100%;
+        }
+        
+        .episodes-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .episodes-container h2 {
+            color: #8B0000;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 0.5rem;
+        }
+        
+        .episode-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .episode-card {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .episode-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .episode-image-container {
+            width: 100%;
+            height: 180px;
+            padding: 10px;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #8B0000;
+        }
+        
+        .episode-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 1px solid #333;
+            border-radius: 3px;
+        }
+        
+        .episode-content {
+            padding: 1rem;
+        }
+        
+        .episode-content h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .episode-content p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .episode-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .play-btn, .info-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .play-btn {
+            background-color: #8B0000;
+            color: white;
+        }
+        
+        .play-btn:hover {
+            background-color: #A52A2A;
+        }
+        
+        .info-btn {
+            background-color: #333;
+            color: #ddd;
+        }
+        
+        .info-btn:hover {
+            background-color: #444;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: #111;
+            margin: 5% auto;
+            padding: 2rem;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid #8B0000;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .modal-image-container {
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #333;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal-text {
+            margin-bottom: 1.5rem;
+        }
+        
+        footer {
+            background-color: #111;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid #8B0000;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .episode-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://s6.uupload.ir/files/112_2lr8.png" alt="لوگو شرکت وابسته" class="affiliate-logo">
+        <div class="logo-circle">
+            <img src="https://s6.uupload.ir/files/1752594726967_62ni.png" alt="لوگو پادکست" style="border-radius: 500px;" >
+        </div>
+        <div class="header-content">
+            <h1>بیرق</h1>
+            <p>کتابخوان عزادار !!</p>
+        </div>
+        <div class="header-info">
+            <div class="info-box">
+                <p>سازنده : <span id="speaker-name">امیرحسین نیک اندیش</span></p>
+            </div>
+            <div class="info-box">
+                <p>مدیر پروژه : <span id="editor-name">مجتمع آموزشی مفید</span></p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="podcast-intro">
+        <p>بیرق مجموعه پادکست هایی است برای معرفی کتاب های ناب محرمی که شنیدنش خالی از لطف نیست !!!</p>
+    </div>
+    
+    <div class="latest-episode">
+        <h2>آخرین اپیزود منتشر شده</h2>
+        <div class="latest-info">
+            <p id="latest-episode-title">اپیزود ۱</p>
+        </div>
+        <div class="audio-player">
+            <audio id="main-audio-player" controls>
+                <source src="episode1.mp3" type="audio/mpeg">
+                مرورگر شما از پخش کننده صوتی پشتیبانی نمی‌کند.
+            </audio>
+        </div>
+    </div>
+    
+    <div class="episodes-container">
+        <h2>همه اپیزودها</h2>
+        <div class="episode-list" id="episode-list">
+            <!-- اپیزودها با جاوااسکریپت اضافه می‌شوند -->
+        </div>
+    </div>
+    
+    <div id="episode-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">&times;</button>
+            <div class="modal-image-container">
+                <img src="" alt="تصویر اپیزود" class="modal-image" id="modal-image">
+            </div>
+            <div class="modal-text">
+                <h3 id="modal-title">عنوان اپیزود</h3>
+                <p id="modal-description">توضیحات کامل اپیزود</p>
+                <p id="modal-speaker">گوینده: نام گوینده</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="contact-info">
+            <h3>ارتباط با ما</h3>
+            <p>ایمیل: beiraq.podcast@gmail.com
+</p>
+        </div>
+        <div class="logo-circle">
+            <img src="https://s6.uupload.ir/files/1752594726967_62ni.png" alt="لوگو پادکست" style="border-radius: 500px;" >
+    </footer>
+    
+    <script>
+        
+        // اطلاعات اپیزودها
+        const episodes = [
+            {
+                id: 1,
+                title: "اپیزود ۱",
+                shortDesc: "فرمانروا گندم خوار",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/125164_914x.jpg",
+                audio: "episode1.mp3",
+                speaker: "امیرحسین نیک اندیش"
+                },
+            {
+                id: 2,
+                title: "اپیزود ۲",
+                shortDesc: "فراموشان",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/32729565_qk0t.jpg",
+                audio: "episode2.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 3,
+                title: "اپیزود ۳",
+                shortDesc: "بچه های فرات",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/جلد-بچه_های-فرات_6fvf.jpg",
+                audio: "episode3.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 4,
+                title: "اپیزود ۴",
+                shortDesc: "سقای آب و ادب",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/459627ad5edc4533896114d4885cc40b_4ps1.jpg",
+                audio: "episode4.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 5,
+                title: "اپیزود ۵",
+                shortDesc: "ماه به روایت آه",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/77e2d7529d428b1afa8c7d1f21ea647a_21wp.jpg",
+                audio: "episode5.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 6,
+                title: "اپیزود ۶",
+                shortDesc: "40 روز عاشقانه",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/7dd0a102c6e14064b178c1464c6eacae_f0ww.jpg",
+                audio: "episode6.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 7,
+                title: "اپیزود ۷",
+                shortDesc: "خون خدا",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/جلد-کتاب-خون-خدا_lanz.jpg",
+                audio: "episode7.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 8,
+                title: "اپیزود ۸",
+                shortDesc: "مقتل نوجوان",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/3521383_j6mc.jpg",
+                audio: "episode8.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 9,
+                title: "اپیزود ۹",
+                shortDesc: "برادر من تویی",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/brader_x8in.jpg",
+                audio: "episode9.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
+            {
+                id: 10,
+                title: "اپیزود ۱۰",
+                shortDesc: "کمیک استریپ عاشورا",
+                longDesc: "",
+                image: "https://s6.uupload.ir/files/528bf3e133eb4409985241bfd79eb4da_p2bf.jpg",
+                audio: "episode10.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            }
+        ];
+
+        // نمایش اپیزودها
+        const episodeList = document.getElementById('episode-list');
+        
+        episodes.forEach(episode => {
+            const episodeCard = document.createElement('div');
+            episodeCard.className = 'episode-card';
+            episodeCard.innerHTML = `
+                <div class="episode-image-container">
+                    <img src="${episode.image}" alt="${episode.title}" class="episode-image">
+                </div>
+                <div class="episode-content">
+                    <h3>${episode.title}</h3>
+                    <p>${episode.shortDesc}</p>
+                    <div class="episode-actions">
+                        <button class="play-btn" onclick="playEpisode('${episode.audio}', '${episode.title}')">پخش</button>
+                        <button class="info-btn" onclick="showEpisodeInfo(${episode.id})">اطلاعات بیشتر</button>
+                    </div>
+                </div>
+            `;
+            episodeList.appendChild(episodeCard);
+        });
+
+        // پخش اپیزود
+        function playEpisode(audioFile, title) {
+            const audioPlayer = document.getElementById('main-audio-player');
+            const latestEpisodeTitle = document.getElementById('latest-episode-title');
+            
+            audioPlayer.src = audioFile;
+            audioPlayer.play();
+            latestEpisodeTitle.textContent = title;
+        }
+
+        // نمایش اطلاعات اپیزود
+        const modal = document.getElementById('episode-modal');
+        const closeBtn = document.getElementById('close-modal');
+        
+        function showEpisodeInfo(episodeId) {
+            const episode = episodes.find(ep => ep.id === episodeId);
+            if (episode) {
+                document.getElementById('modal-image').src = episode.image;
+                document.getElementById('modal-title').textContent = episode.title;
+                document.getElementById('modal-description').textContent = episode.longDesc;
+                document.getElementById('modal-speaker').textContent = `گوینده: ${episode.speaker}`;
+                modal.style.display = 'block';
+            }
+        }
+        
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
