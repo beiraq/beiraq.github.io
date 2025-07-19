@@ -293,6 +293,18 @@
             margin-bottom: 1.5rem;
         }
         
+        /* استایل جدید برای لینک‌ها در مودال */
+        .modal-text a {
+            color: #8B0000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .modal-text a:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        
         footer {
             background-color: #111;
             padding: 2rem;
@@ -384,7 +396,7 @@
             </div>
             <div class="modal-text">
                 <h3 id="modal-title">عنوان اپیزود</h3>
-                <p id="modal-description">توضیحات کامل اپیزود</p>
+                <div id="modal-description">توضیحات کامل اپیزود</div>
                 <p id="modal-speaker">گوینده: نام گوینده</p>
             </div>
         </div>
@@ -401,19 +413,18 @@
     </footer>
     
     <script>
-        
-        // اطلاعات اپیزودها
+        // اطلاعات اپیزودها با توضیحات کامل و لینک‌ها
         const episodes = [
             {
                 id: 1,
                 title: "اپیزود ۱",
                 shortDesc: "فرمانروا گندم خوار",
-                longDesc: "برای خرید و دانلود نسخه الکترونیکی این کتاب در اپلیکیشن طاقچه، به این آدرس بروید: \nhttps://taaghche.com/book/125164   ",
+                longDesc: "در این اپیزود به معرفی کتاب 'فرمانروا گندم خوار' می‌پردازیم.<br><br>برای خرید کتاب می‌توانید از <a href='https://taaghche.com/book/125164' target='_blank'>این لینک</a> استفاده کنید.<br><br>",
                 image: "https://s6.uupload.ir/files/125164_914x.jpg",
                 audio: "https://uploadkon.ir/uploads/e18519_25بیرق01.mp3",
                 speaker: "امیرحسین نیک اندیش"
-                },
-           
+            },
+            
         ];
 
         // نمایش اپیزودها
@@ -457,7 +468,7 @@
             if (episode) {
                 document.getElementById('modal-image').src = episode.image;
                 document.getElementById('modal-title').textContent = episode.title;
-                document.getElementById('modal-description').textContent = episode.longDesc;
+                document.getElementById('modal-description').innerHTML = episode.longDesc;
                 document.getElementById('modal-speaker').textContent = `گوینده: ${episode.speaker}`;
                 modal.style.display = 'block';
             }
