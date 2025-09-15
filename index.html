@@ -369,9 +369,9 @@
     </div>
     
     <div class="latest-episode">
-        <h2>آخرین اپیزود منتشر شده : 8</h2>
+        <h2>آخرین اپیزود منتشر شده : 9</h2>
         <div class="latest-info">
-            <p id="latest-episode-title">اپیزود 8</p>
+            <p id="latest-episode-title">اپیزود 9</p>
         </div>
         <div class="audio-player">
             <audio id="main-audio-player" controls>
@@ -415,7 +415,7 @@
     <script>
         // اطلاعات اپیزودها با توضیحات کامل و لینک‌ها
         const episodes = [
-            {
+           {
                 id: 1,
                 title: "اپیزود ۱",
                 shortDesc: "فرمانروا گندم خوار",
@@ -487,6 +487,15 @@
                 audio: "https://uploadkon.ir/uploads/551c25_25بیرق08.mp3",
                 speaker: "امیرحسین نیک اندیش"
             },
+            {
+                id: 9,
+                title: "اپیزود ۹",
+                shortDesc: "برادر من تویی",
+                longDesc: "شجاع مرد سقا ...<br><br> لینک خرید نسخه دیجیتالی : <a href='https://taaghche.com/book/76546/%D8%A8%D8%B1%D8%A7%D8%AF%D8%B1-%D9%85%D9%86-%D8%AA%D9%88%DB%8C%DB%8C' target='_blank'>کلیک کنید</a><br>لینک خرید نسخه فیزیکی :  <a href='https://www.iranketab.ir/book/11730-you-are-my-brother'>کلیک کنید</a> <br><br>",
+                image: "https://s6.uupload.ir/files/brader_x8in.jpg",
+                audio: "https://uploadkon.ir/uploads/92a926_25بیرق09.mp3",
+                speaker: "امیرحسین نیک اندیش"
+            },
             
         ];
 
@@ -539,13 +548,4 @@
         
         closeBtn.onclick = function() {
             modal.style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-</body>
-</html>
+    
